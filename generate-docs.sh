@@ -8,7 +8,7 @@ echo "BUILD_TIME: $BUILD_TIME"
 
 rm -rf ./generated_docs
 mkdir ./generated_docs
-cp ./index.html ./generated_docs
+cp ./template.html ./generated_docs/index.html
 
 sed -i "s/GIT_REVISION/${GIT_REVISION}/g" ./generated_docs/index.html
 sed -i "s/BUILD_TIME/${BUILD_TIME}/g" ./generated_docs/index.html
