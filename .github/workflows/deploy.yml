@@ -26,7 +26,7 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v3
       - name: Generate content
-        run: ./generate-docs.sh
+        run: bash ./generate-docs.sh
       - name: Upload docs
         uses: actions/upload-pages-artifact@v1.0.8
         with:
