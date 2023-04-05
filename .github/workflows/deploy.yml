@@ -37,19 +37,8 @@ jobs:
       - name: Create release
         run: |
          export GH_TOKEN=${{ secrets.GITHUB_TOKEN }}
-         gh api \
-         --method POST \
-         -H "Accept: application/vnd.github+json" \
-         -H "X-GitHub-Api-Version: 2022-11-28" \
-         /repos/4TT1L4/GitHubPagesDeployment/releases \
-         -f tag_name='v1.0.0' \
-         -f target_commitish='main' \
-         -f name='v1.0.0' \
-         -f body='Dummy release' \
-         -F draft=true \
-         -F prerelease=false \
-         -F generate_release_notes=true
-      - name: Upload release artifacts
-        run: |
-         export GH_TOKEN=${{ secrets.GITHUB_TOKEN }}
-         gh release upload 'v1.0.0' './generated_docs/index.html#documentation'
+         gh release create \
+            --generate-notes \
+            --verify-tag \
+            'v1.0.0' \
+            './generated_docs/index.html#documentation'
